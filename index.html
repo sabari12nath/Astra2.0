@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Astra 2.0 Bootcamp Inauguration - Experience the future of innovation">
+    <meta name="keywords" content="Astra 2.0, Bootcamp Inauguration, Innovation, Technology">
+    <title>Astra 2.0 - Bootcamp Inauguration</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="background-container">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="stars"></div>
+    </div>
+
+    <!-- Main Inauguration Section -->
+    <main id="inauguration-section" class="inauguration-section">
+        <div class="content-wrapper">
+            <!-- Logo/Title Area -->
+            <div class="title-container">
+                <h1 class="main-title">
+                    <span class="title-line">ASTRA</span>
+                    <span class="title-version">2.0</span>
+                </h1>
+                <p class="subtitle">Bootcamp Inauguration</p>
+
+                <!-- Date Badge -->
+                <div class="date-badge">
+                    <svg class="calendar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M16 2V6M8 2V6M3 10H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <span class="date-text">6-8 February 2026</span>
+                </div>
+
+                <!-- Innovation Badge -->
+                <div class="innovation-badge">
+                    <svg class="badge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                            fill="currentColor" />
+                    </svg>
+                    <span>Creative Thinking & Innovation</span>
+                    <svg class="badge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M9 2C9 2 7.5 4 7.5 7.5C7.5 9 8 10 9 10.5V14.5C9 15.6 9.9 16.5 11 16.5H13C14.1 16.5 15 15.6 15 14.5V10.5C16 10 16.5 9 16.5 7.5C16.5 4 15 2 15 2M12 19.5C10.6 19.5 9.5 20.6 9.5 22H14.5C14.5 20.6 13.4 19.5 12 19.5Z"
+                            fill="currentColor" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Inauguration Button -->
+            <div class="button-container">
+                <button id="inauguration-btn" class="inauguration-btn" aria-label="Start Inauguration">
+                    <span class="btn-background"></span>
+                    <span class="btn-border"></span>
+                    <span class="btn-content">
+                        <span class="btn-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5v14l11-7L8 5z" fill="currentColor" />
+                            </svg>
+                        </span>
+                        <span class="btn-text">Inaugurate</span>
+                    </span>
+                    <span class="btn-glow"></span>
+                </button>
+            </div>
+
+            <!-- Decorative Elements -->
+            <div class="decorative-lines">
+                <div class="line line-left"></div>
+                <div class="line line-right"></div>
+            </div>
+
+            <!-- Interactive Stats -->
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-label">Days</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="8">0</div>
+                    <div class="stat-label">Sessions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="8">0</div>
+                    <div class="stat-label">Activities</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Video Section (Initially Hidden) -->
+    <section id="video-section" class="video-section">
+        <video id="inauguration-video" class="inauguration-video">
+            <source src="Astar 2.0.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button id="close-video-btn" class="close-video-btn" aria-label="Close Video">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+        </button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
