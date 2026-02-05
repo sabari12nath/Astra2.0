@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // If autoplay fails, show play button overlay
                     showPlayButton();
                 });
-            }, 300);
+            }, 1000);
         }, 600); // Match CSS transition duration
     }
 
