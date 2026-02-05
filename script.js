@@ -40,15 +40,51 @@ document.addEventListener('DOMContentLoaded', () => {
             // Show video section
             videoSection.classList.add('active');
 
-            // Play video after a short delay for smooth transition
-            setTimeout(() => {
+            // Start countdown before playing video
+            showCountdown();
+        }, 600); // Match CSS transition duration
+    }
+
+    // ===================================
+    // Show Countdown (5, 4, 3, 2, 1, 0)
+    // ===================================
+    function showCountdown() {
+        // Create countdown overlay
+        const countdownOverlay = document.createElement('div');
+        countdownOverlay.className = 'countdown-overlay';
+        countdownOverlay.innerHTML = `<div class="countdown-number">5</div>`;
+
+        videoSection.appendChild(countdownOverlay);
+
+        const countdownNumber = countdownOverlay.querySelector('.countdown-number');
+        let count = 5;
+
+        // Update countdown every second
+        const countdownInterval = setInterval(() => {
+            count--;
+
+            if (count >= 0) {
+                // Update the number with animation
+                countdownNumber.style.transform = 'scale(0.8)';
+                countdownNumber.style.opacity = '0';
+
+                setTimeout(() => {
+                    countdownNumber.textContent = count;
+                    countdownNumber.style.transform = 'scale(1)';
+                    countdownNumber.style.opacity = '1';
+                }, 150);
+            } else {
+                // Countdown finished, remove overlay and play video
+                clearInterval(countdownInterval);
+                countdownOverlay.remove();
+
                 video.play().catch(error => {
                     console.error('Error playing video:', error);
                     // If autoplay fails, show play button overlay
                     showPlayButton();
                 });
-            }, 2000);
-        }, 600); // Match CSS transition duration
+            }
+        }, 1000);
     }
 
     // ===================================
@@ -72,6 +108,36 @@ document.addEventListener('DOMContentLoaded', () => {
         playBtn.addEventListener('click', () => {
             video.play();
             playOverlay.remove();
+        });
+    }
+
+    // ===================================
+    // Show Success Message After Video
+    // ===================================
+    function showSuccessMessage() {
+        // Create success overlay
+        const successOverlay = document.createElement('div');
+        successOverlay.className = 'countdown-overlay';
+
+        // Add ASTRA 2.0 title
+        const successTitle = document.createElement('div');
+        successTitle.className = 'countdown-number';
+        successTitle.textContent = 'ASTRA 2.0';
+        successTitle.style.fontSize = 'clamp(3rem, 10vw, 6rem)';
+
+        // Add success text
+        const successText = document.createElement('div');
+        successText.className = 'success-text';
+        successText.textContent = 'Inaugurated Successfully';
+
+        successOverlay.appendChild(successTitle);
+        successOverlay.appendChild(successText);
+        videoSection.appendChild(successOverlay);
+
+        // Add click to close
+        successOverlay.addEventListener('click', () => {
+            successOverlay.remove();
+            closeVideo();
         });
     }
 
@@ -104,14 +170,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Video Event Listeners
     // ===================================
 
-    // When video ends, optionally loop or show replay option
+    // When video ends, show success message
     video.addEventListener('ended', () => {
-        // Option 1: Loop the video
-        // video.currentTime = 0;
-        // video.play();
-
-        // Option 2: Show replay button (uncomment if needed)
-        // showReplayButton();
+        showSuccessMessage();
     });
 
     // ===================================
